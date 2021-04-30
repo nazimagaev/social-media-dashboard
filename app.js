@@ -2,28 +2,27 @@ const toggleSwitch = document.querySelector('input[type="checkbox"]');
 const nav = document.getElementById("nav");
 const toggleIcon = document.getElementById("toggle-icon");
 const textBox = document.getElementById("text-box");
-
+const cards = document.querySelectorAll(".today-cards .social-cards  ");
 
 function toggleDarkLightMode(isDark) {
   nav.style.backgroundColor = isDark ? "#F2F2F2;" : "#20222F";
   textBox.style.backgroundColor = isDark ? "#F2F2F2;" : "#20222F";
+  cards.style.backgroundColor = isDark ? "#F2F2F2;" : "#20222F";
   toggleIcon.children[0].textContent = isDark ? "Dark Mode" : "Light Mode";
 }
 
 function darkMode() {
   nav.style.backgroundColor = "#20222F";
   textBox.style.backgroundColor = "#20222F";
-  toggleIcon.children[0].textContent = "Dark Mode";
-  imageMode("dark");
+  cards.style.backgroundColor = "#252B42";
+  toggleIcon.children[0].textContent = "Light mode";
 }
 
 // Light Mode Styles
 function lightMode() {
-  nav.style.backgroundColor = "rgb(255 255 255 / 50%)";
-  textBox.style.backgroundColor = "rgb(0 0 0 / 50%)";
-  toggleIcon.children[0].textContent = "Light Mode";
-  toggleIcon.children[1].classList.replace("fa-moon", "fa-sun");
-  imageMode("light");
+  nav.style.backgroundColor = "#f2f2f2";
+  textBox.style.backgroundColor = "#F2f2f2";
+  cards.style.backgroundColor = "#F2F2F2;";
 }
 
 // Switch Theme Dynamically
@@ -43,12 +42,13 @@ function switchTheme(event) {
 toggleSwitch.addEventListener("change", switchTheme);
 
 // Check Local Storage For Theme
-const currentTheme = localStorage.getItem("theme");
-if (currentTheme) {
-  document.documentElement.setAttribute("data-theme", currentTheme);
+// const currentTheme = localStorage.getItem("theme");
+// if (currentTheme) {
+//   document.documentElement.setAttribute("data-theme", currentTheme);
 
-  if (currentTheme === "dark") {
-    toggleSwitch.checked = true;
-    darkMode();
-  }
-}
+//   if (currentTheme === "dark") {
+//     toggleSwitch.checked = true;
+//     darkMode();
+//   }
+// }
+console.log("red");
